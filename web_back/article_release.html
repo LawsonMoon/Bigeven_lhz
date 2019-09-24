@@ -39,12 +39,7 @@
                 <div class="form-group">
                     <label for="inputEmail3" class="col-sm-2 control-label">文章类别：</label>
                     <div class="col-sm-4">
-                        <select class="form-control">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
+                        <select id="category" class="form-control">
                         </select>
                     </div>
                 </div>
@@ -80,6 +75,25 @@
         </div>
     </div>
 
+    <script src="./js/template-web.js"></script>
+    <script src="./js/config.js"></script>
+    <script src="./js/article.js"></script>
+    <script type="html/text" id="temp">
+        {{each data item}}
+            <option id="cate{{item.id}}">{{item.name}}</option>
+        {{/each}}
+    </script>
+    <script>
+        //获取类别列表
+        $(function () {
+            article.show(function (res) {
+                if (res.code === 200) {
+                    var htmlStr = template('temp', res);
+                    $('#category').html(htmlStr);
+                }
+            })
+        })
+    </script>
 </body>
 
 </html>

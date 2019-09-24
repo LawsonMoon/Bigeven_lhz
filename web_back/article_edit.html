@@ -40,12 +40,7 @@
                 <div class="form-group">
                     <label for="inputEmail3" class="col-sm-2 control-label">文章类别：</label>
                     <div class="col-sm-4">
-                        <select class="form-control">
-                            <option>类别一</option>
-                            <option>类别二</option>
-                            <option>类别三</option>
-                            <option selected>类别四</option>
-                            <option>类别五</option>
+                        <select id="category" class="form-control">
                         </select>
                     </div>
                 </div>
@@ -66,7 +61,8 @@
                 <div class="form-group">
                     <label for="inputEmail3" class="col-sm-2 control-label">文章内容：</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="rich_content" name="content" placeholder="文章内容" value="文章内容">
+                        <input type="text" class="form-control" id="rich_content" name="content" placeholder="文章内容"
+                            value="文章内容">
                     </div>
                 </div>
                 <div class="form-group">
@@ -77,7 +73,25 @@
             </form>
         </div>
     </div>
-
+    <script src="./js/template-web.js"></script>
+    <script src="./js/config.js"></script>
+    <script src="./js/article.js"></script>
+    <script type="html/text" id="temp">
+        {{each data item}}
+            <option id="cate{{item.id}}">{{item.name}}</option>
+        {{/each}}
+    </script>
+    <script>
+        //获取类别列表
+        $(function () {
+            article.show(function (res) {
+                if (res.code === 200) {
+                    var htmlStr = template('temp', res);
+                    $('#category').html(htmlStr);
+                }
+            })
+        })
+    </script>
 </body>
 
 </html>
