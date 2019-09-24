@@ -8,6 +8,10 @@ var UrlList = {
     user_logout: url + '/admin/logout',
     //获取信息
     user_getUser: url + '/admin/getuser',
+    //用户信息
+    user_getUserInfo: url + '/admin/userinfo_get',
+    //编辑用户信息
+    user_edit: url + '/admin/userinfo_edit',
     //搜索
     category_show: url + '/admin/category_search',
     //删除

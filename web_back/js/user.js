@@ -32,4 +32,23 @@ var user = {
             callback(res);
         })
     },
+    //个人中心用户信息
+    userInfo: function (callback) {
+        $.get(UrlList.user_getUserInfo, function (res) {
+            callback(res);
+        })
+    },
+    //个人中心编辑用户信息
+    userEdit: function (fd, callback) {
+        $.ajax({
+            url: UrlList.user_edit,
+            type: 'post',
+            data: fd,
+            contentType: false,
+            processData: false,
+            success: function (res) {
+                callback(res);
+            }
+        })
+    }
 }
