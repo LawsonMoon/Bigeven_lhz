@@ -36,6 +36,13 @@ var article = {
             callBack(res);
         })
     },
+    /**
+     * 
+     * @param {*} id 
+     * @param {*} name 
+     * @param {*} slug 
+     * @param {*} callBack 
+     */
     edit: function (id, name, slug, callBack) {
         $.post(UrlList.category_edit, {
             id: id,
@@ -45,4 +52,26 @@ var article = {
             callBack(res);
         })
     },
+    /**
+     * 
+     * @param {*} paramObj 
+     * @param {*} callBack 
+     */
+    a_search: function (paramObj, callBack) {
+        $.get(UrlList.article_search, paramObj, function (res) {
+            callBack(res);
+        })
+    },
+    /**
+     * 
+     * @param {*} id 
+     * @param {*} callBack 
+     */
+    a_del: function (id, callBack) {
+        $.get(UrlList.article_del, {
+            id: id
+        }, function (res) {
+            callBack(res);
+        })
+    }
 }

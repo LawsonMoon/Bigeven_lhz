@@ -19,5 +19,8 @@ var UrlList = {
     //添加
     category_add: url + '/admin/category_add',
     //编辑
-    category_edit: url + '/admin/category_edit'
+    category_edit: url + '/admin/category_edit',
+    //文章搜索
+    article_search: url + '/admin/search',
+    article_del: url + '/admin/article_delete'
 }
